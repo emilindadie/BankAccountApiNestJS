@@ -3,11 +3,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DbConfig } from './Config/dbConfig';
-import { ConfigModule } from '@nestjs/config';
+import 'dotenv/config';
+import { UserModule } from './modules';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    UserModule,
     TypeOrmModule.forRootAsync({ useClass: DbConfig }),
   ],
   controllers: [AppController],
