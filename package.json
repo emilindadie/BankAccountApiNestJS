@@ -24,6 +24,7 @@
     "@nestjs/config": "^0.4.1",
     "@nestjs/core": "^6.10.14",
     "@nestjs/platform-express": "^6.10.14",
+    "@nestjs/platform-fastify": "^7.0.9",
     "@nestjs/typeorm": "^7.0.0",
     "mysql": "^2.18.1",
     "pg": "^8.0.3",
