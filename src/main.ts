@@ -6,7 +6,7 @@ import 'dotenv/config';
 
 declare const module: any;
 async function bootstrap() {
-  const port = process.env.APP_PORT || 8080;
+  const port = process.env.APP_PORT || 3000;
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter()
