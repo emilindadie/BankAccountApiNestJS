@@ -5,11 +5,11 @@ import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify
 
 declare const module: any;
 async function bootstrap() {
-  const port = process.env.APP_PORT || 8080;
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter()
   );
+  const port = process.env.APP_PORT || 8080;
   await app.listen(Number(port), '0.0.0.0');
   Logger.log(`App listening on port ${port}!`)
 
