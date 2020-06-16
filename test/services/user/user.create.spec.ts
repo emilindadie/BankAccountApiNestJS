@@ -3,7 +3,6 @@ import { Repository } from "typeorm";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { AuthService } from '../../../src/services/auth/auth.service';
 import { UserEntity, AccountEntity } from '../../../src/entities';
-import { JwtStrategy } from '../../../src/Config/passport';
 import { createUserDto, userMock } from "../../../test/test-files";
 import { UserService } from "../../../src/services/user/user.service";
 
@@ -23,7 +22,6 @@ describe('User service - create', () => {
                 provide: getRepositoryToken(AccountEntity),
                 useClass: Repository,
             },
-            JwtStrategy
         ],
       }).compile();
       userService = module.get<UserService>(UserService);

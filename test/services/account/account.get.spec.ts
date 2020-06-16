@@ -5,7 +5,6 @@ import { AccountService } from '../../../src/services/account/account';
 import { UserService } from '../../../src/services/user/user.service';
 import { AuthService } from '../../../src/services/auth/auth.service';
 import { UserEntity, AccountEntity } from '../../../src/entities';
-import { JwtStrategy } from '../../../src/Config/passport';
 import { allAccountMock } from "../../../test/test-files";
 
 describe('Get account', () => {
@@ -25,7 +24,6 @@ describe('Get account', () => {
                 provide: getRepositoryToken(AccountEntity),
                 useClass: Repository,
             },
-            JwtStrategy
         ],
       }).compile();
       accountService = module.get<AccountService>(AccountService);
