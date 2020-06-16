@@ -79,3 +79,9 @@ $ npm run test:e2e
 ```sh
 $ npm run test:cov 
 ```
+
+# Access to swagger interface
+
+```sh
+http://localhost:${your_server_port}/api
+```
