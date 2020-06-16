@@ -8,7 +8,7 @@ import { AccountModule } from './modules';
 import { OperationModule } from './modules/operation';
 
 async function bootstrap() {
-  const port = process.env.APP_PORT || 3000;
+  const port = process.env.SERVER_PORT || 3001;
   const app = await NestFactory.create(AppModule);
 
   const options = new DocumentBuilder()

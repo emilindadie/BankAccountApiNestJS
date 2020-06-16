@@ -32,7 +32,7 @@ Think of your personal bank account experience When in doubt, go for the simples
 [BankAccountKataFrontAngularNgrx](https://github.com/emilindadie/BankAccountKataFrontAngularNgrx)
 
 
-# Others BackEnd build with nodejS and expressJS
+# Others same BackEnd which has been built with NodejS and expressJS
 
 [BankAccountkataApi](https://github.com/emilindadie/BankAccountKataApi)
 
@@ -44,11 +44,12 @@ $ touch .env at root
 ```sh
 echo "
 HOST=your_host
-PORT=your_port
+DB_PORT=your_port
 USERNAME=your_database_username
 PASSWORD=your_database_password
 DATABASE=your_database_name
 JWTSECRET=your_secret
+SERVER_PORT=your_server_port
 ACCESS_TOKEN_EXPIREIN=your time (1h)
 REFRESH_TOKEN_EXPIREIN=your time (6h)  // refresh token must be available longer than access token
 " > .env
