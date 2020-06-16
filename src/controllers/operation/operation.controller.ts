@@ -1,6 +1,7 @@
 import { OperationService } from "src/services/operation/operation";
 import { Controller, HttpCode, Post, Body, Get, Param, Query, UseGuards } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
+import { OperationDto } from "src/models/operation/operation";
 
 @Controller('/operations')
 export class OperationController {
@@ -10,7 +11,7 @@ export class OperationController {
     @Post()
     @HttpCode(201)
     @UseGuards(AuthGuard())
-    async createOperation(@Body() operationDto: any) {
+    async createOperation(@Body() operationDto: OperationDto) {
         try {
             const createOperationResponse = await this.service.createOperation(operationDto.accountId, operationDto.amount);
             return { data: createOperationResponse };

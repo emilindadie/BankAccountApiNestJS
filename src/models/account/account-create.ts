@@ -1,6 +1,10 @@
-import { IUser } from "..";
+import {CreateUserDto } from "..";
+import { IsString, ValidateNested, IsNotEmpty } from 'class-validator';
 
 export class CreateAccountDto {
+    @IsString()
+    @IsNotEmpty()
     name: string;
-    user: IUser;
+    @ValidateNested()
+    user: CreateUserDto;
 }
