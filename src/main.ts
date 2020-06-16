@@ -1,22 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Logger } from '@nestjs/common';
-import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import 'dotenv/config';
 
-declare const module: any;
 async function bootstrap() {
   const port = process.env.APP_PORT || 3000;
-  const app = await NestFactory.create<NestFastifyApplication>(
-    AppModule,
-    new FastifyAdapter()
-  );
+  const app = await NestFactory.create(AppModule);
   await app.listen(Number(port), '0.0.0.0');
   Logger.log(`App listening on port ${port}!`)
 
-  if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(() => app.close());
-  }
 }
 bootstrap();
