@@ -2,8 +2,6 @@ import { fail } from 'assert';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Repository } from "typeorm";
 import { getRepositoryToken } from "@nestjs/typeorm";
-import { JwtModule } from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
 import { UserService } from '../../../src/services/user/user.service';
 import { AuthService } from '../../../src/services/auth/auth.service';
 import { UserEntity, AccountEntity } from '../../../src/entities';
@@ -16,15 +14,7 @@ describe('User service - login', () => {
   
     beforeAll(async () => {
       module = await Test.createTestingModule({
-          imports: [
-            PassportModule.register({ defaultStrategy: 'jwt' }),
-            JwtModule.register({
-            secretOrPrivateKey: process.env.SECRETKEY || 'secretKey',
-            signOptions: {
-                expiresIn: 3600,
-            },
-            }),
-          ],
+        imports: [],
         providers: [UserService, AuthService,
             {
                 provide: getRepositoryToken(UserEntity),

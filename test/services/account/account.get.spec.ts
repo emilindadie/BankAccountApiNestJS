@@ -1,8 +1,6 @@
 import { TestingModule, Test } from "@nestjs/testing";
 import { Repository } from "typeorm";
 import { getRepositoryToken } from "@nestjs/typeorm";
-import { JwtModule } from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
 import { AccountService } from '../../../src/services/account/account';
 import { UserService } from '../../../src/services/user/user.service';
 import { AuthService } from '../../../src/services/auth/auth.service';
@@ -17,13 +15,6 @@ describe('Get account', () => {
     beforeAll(async () => {
       module = await Test.createTestingModule({
           imports: [
-            PassportModule.register({ defaultStrategy: 'jwt' }),
-            JwtModule.register({
-            secretOrPrivateKey: process.env .SECRETKEY ||'secretKey',
-            signOptions: {
-                expiresIn: 3600,
-            },
-            }),
           ],
         providers: [AccountService, UserService, AuthService,
             {
