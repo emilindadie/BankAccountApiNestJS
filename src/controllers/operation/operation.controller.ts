@@ -26,6 +26,26 @@ export class OperationController {
         }
     }
 
+    @Get('last')
+    @HttpCode(200)
+    @UseGuards(AuthGuard())
+    @ApiResponse({ status: 200, description: 'last account operation has been successfully retreived'})
+    @ApiBadRequestResponse({status: 424, description: 'failed to retreive last account operation!'})
+    @ApiQuery({name : 'accountId', required: true})
+    public async getLastOperationByAccountId(@Query() query: any) {
+        const accountId = Number(query.accountId);
+        try {
+            const lastOperationByAccountIdResponse = await this.service.getLastOperationByAccountId(accountId);
+            return {
+                data: lastOperationByAccountIdResponse,
+            };
+        } catch (e) {
+            return {
+                error: { message : e.message }
+            };
+        }
+    }
+
 
     @Get(':id')
     @HttpCode(200)
@@ -73,26 +93,6 @@ export class OperationController {
             }
         } catch (e) {
             return { error: { message : e.message }};
-        }
-    }
-
-    @Get('last')
-    @HttpCode(200)
-    @UseGuards(AuthGuard())
-    @ApiResponse({ status: 200, description: 'last account operation has been successfully retreived'})
-    @ApiBadRequestResponse({status: 424, description: 'failed to retreive last account operation!'})
-    @ApiQuery({name : 'accountId', required: true})
-    public async getLastOperationByAccountId(@Query() query: any) {
-        const accountId = Number(query.accountId);
-        try {
-            const lastOperationByAccountIdResponse = await this.service.getLastOperationByAccountId(accountId);
-            return {
-                data: lastOperationByAccountIdResponse,
-            };
-        } catch (e) {
-            return {
-                error: { message : e.message }
-            };
         }
     }
 }
