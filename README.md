@@ -48,10 +48,12 @@ DB_PORT=your_port
 USERNAME=your_database_username
 PASSWORD=your_database_password
 DATABASE=your_database_name
-JWTSECRET=your_secret
+JWTACCESSTOKENSECRET=your_secret
+JWTREFRESHTOKENSECRET=your_secret
 SERVER_PORT=your_server_port
 ACCESS_TOKEN_EXPIREIN=your time (1h)
 REFRESH_TOKEN_EXPIREIN=your time (6h)  // refresh token must be available longer than access token
+NODE_ENV=your_environment (development)
 " > .env
 ```
 
