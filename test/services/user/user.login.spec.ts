@@ -66,7 +66,7 @@ describe('User service - login', () => {
         spyOn(userService, 'getUserByEmail').and.returnValue(Promise.resolve(false));
 
         try {
-            const output = await userService.logUser(inputEmail, inputPassword);
+            await userService.logUser(inputEmail, inputPassword);
             fail();
         } catch (e) {
             expect(e).toBeInstanceOf(Error);
@@ -80,7 +80,7 @@ describe('User service - login', () => {
         spyOn(userService, 'comparePassword').and.returnValue(Promise.resolve(false));
 
         try {
-            const output = await userService.logUser(inputEmail, inputPassword);
+            await userService.logUser(inputEmail, inputPassword);
             fail();
         } catch (e) {
             expect(e).toBeInstanceOf(Error);

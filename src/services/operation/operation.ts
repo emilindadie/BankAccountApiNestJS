@@ -43,7 +43,7 @@ export class OperationService {
         }
         const myLocalDate = new Date(localDate);
 
-        var firstDay = new Date(myLocalDate.getFullYear(), myLocalDate.getMonth(), 1);
+        const firstDay = new Date(myLocalDate.getFullYear(), myLocalDate.getMonth(), 1);
         const lastDay = new Date(myLocalDate.getFullYear(), myLocalDate.getMonth() + 1, 0);
 
         return await this.operationRepository

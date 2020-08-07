@@ -61,7 +61,7 @@ describe('User service - create', () => {
         spyOn(userService, 'checkIfEmailExist').and.returnValue(Promise.resolve(true));
 
         try {
-            const output = await userService.createUser(myUser);
+            await userService.createUser(myUser);
             fail();
         } catch (e) {
             expect(e).toBeInstanceOf(Error);

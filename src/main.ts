@@ -6,6 +6,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AuthModule } from './modules/auth/auth.module';
 import { AccountModule } from './modules';
 import { OperationModule } from './modules/operation';
+import * as cookieParser from 'cookie-parser'
 
 async function bootstrap() {
   const port = process.env.SERVER_PORT || 3001;
@@ -30,6 +31,8 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
+  app.use(cookieParser());
+
   await app.listen(Number(port), '0.0.0.0');
   Logger.log(`App listening on port ${port}!`)
 
