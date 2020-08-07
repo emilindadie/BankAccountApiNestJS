@@ -78,8 +78,8 @@ export class AuthController {
     @Get('current')
     @HttpCode(200)
     @UseGuards(AuthGuard())
-    @ApiResponse({ status: 200, description: 'You get new token successfully'})
-    @ApiBadRequestResponse({status: 424, description: 'Failed to get new token!'})
+    @ApiResponse({ status: 200, description: 'You get current user successfully'})
+    @ApiBadRequestResponse({status: 424, description: 'Failed to get current user!'})
     async currentUser(@Req() request: Request, @Res() response: Response) {       
         try {
            const refreshToken = request.cookies['refresh_token'];
