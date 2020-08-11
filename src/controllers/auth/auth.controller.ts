@@ -82,7 +82,7 @@ export class AuthController {
     @ApiBadRequestResponse({status: 424, description: 'Failed to get current user!'})
     async currentUser(@Req() request: Request, @Res() response: Response) {       
         try {
-           const refreshToken = request.cookies['refresh_token'];
+            const refreshToken = request.cookies['refresh_token'];
             const user =  await this.authService.getCurrentUserWithToken(refreshToken);
             response.send({ data: {user: user} });
         } catch (e) {
